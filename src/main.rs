@@ -8,20 +8,19 @@ fn main() {
     let mut max_value: i32 = 100;
     let mut rng = rand::thread_rng();
     println!("Hello, world!");
-    println!("Enter the number of tests (hit enter for 10):");
+    println!("Enter the number of tests (hit enter for {}):", num_tests);
     let mut line: String = read!("{}\n"); 
     match line.parse::<i32>() {
         Ok(result) => num_tests = result,
         Err(_e) => println!("Using default value for number of tests: {}", num_tests),
     }
-    println!("I managed to read: {}", num_tests);
-    println!("Enter the minvalue: ");
+    println!("Enter the minvalue (hit enter for default {}): ", min_value);
     line = read!("{}\n");
     match line.parse::<i32>() {
         Ok(result) =>  min_value = result,
         Err(_e) => println!("Using default value for minvalue: {}", min_value),
     }
-    println!("Enter the maxvalue: ");
+    println!("Enter the maxvalue (hit enter for default {}): ", max_value);
     line = read!("{}\n");
     match line.parse::<i32>() {
         Ok(result) => max_value = result,
