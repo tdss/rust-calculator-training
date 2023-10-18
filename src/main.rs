@@ -1,5 +1,6 @@
 use text_io::read;
 use rand::Rng;
+use std::time::{Duration, Instant};
 
 fn main() {
     let mut rng = rand::thread_rng();
@@ -19,6 +20,7 @@ fn main() {
 
     let mut n1: i32 = rng.gen_range(min_value..max_value);
     let mut n2: i32 = rng.gen_range(min_value..max_value);
+    let start = Instant::now();
     while correct < num_tests {
         println!("Question {}: ", correct+1);
         println!("{} * {} ??", n1, n2);
@@ -34,6 +36,8 @@ fn main() {
         }
 
     }
+    let duration = start.elapsed();
 
     println!("END OF GAME! POINTS: {}, ERRORS: {}. See you next time!", points, errors);
+    println!("It took {:?}s. Congrats!",(duration.as_millis() as f64)/1000.0);
 }
