@@ -1,6 +1,6 @@
 use text_io::read;
 use rand::Rng;
-use std::time::{Duration, Instant};
+use std::time::Instant;
 
 fn main() {
     let mut rng = rand::thread_rng();
