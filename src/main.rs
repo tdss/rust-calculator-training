@@ -3,15 +3,30 @@ use rand::Rng;
 use std::time::Instant;
 
 fn main() {
+    let mut num_tests = 10;
+    let mut min_value: i32 = 30;
+    let mut max_value: i32 = 100;
     let mut rng = rand::thread_rng();
     println!("Hello, world!");
-    println!("Enter the amount of tests:");
-    let num_tests: i32 = read!();
+    println!("Enter the number of tests (hit enter for 10):");
+    let mut line: String = read!("{}\n"); 
+    match line.parse::<i32>() {
+        Ok(result) => num_tests = result,
+        Err(_e) => println!("Using default value for number of tests: {}", num_tests),
+    }
+    println!("I managed to read: {}", num_tests);
     println!("Enter the minvalue: ");
-    let min_value: i32 = read!();
+    line = read!("{}\n");
+    match line.parse::<i32>() {
+        Ok(result) =>  min_value = result,
+        Err(_e) => println!("Using default value for minvalue: {}", min_value),
+    }
     println!("Enter the maxvalue: ");
-    let max_value: i32 = read!();
-
+    line = read!("{}\n");
+    match line.parse::<i32>() {
+        Ok(result) => max_value = result,
+        Err(_e) => println!("Using default value for mixvalue: {}", max_value),
+    }
     println!("You wanted to do {} tests ranging from {} to {}", num_tests,min_value,max_value);
     
     let mut correct = 0;
