@@ -18,8 +18,8 @@ fn main() {
     let mut errors = 0;
     let mut points = 0;
 
-    let mut n1: i32 = rng.gen_range(min_value..max_value);
-    let mut n2: i32 = rng.gen_range(min_value..max_value);
+    let mut n1: i32 = rng.gen_range(min_value..=max_value);
+    let mut n2: i32 = rng.gen_range(min_value..=max_value);
     let start = Instant::now();
     while correct < num_tests {
         println!("Question {}: ", correct+1);
@@ -28,8 +28,8 @@ fn main() {
         if result == n1 * n2 {
             correct += 1;
             println!("Correct!");
-            n1 = rng.gen_range(min_value..max_value);
-            n2 = rng.gen_range(min_value..max_value);
+            n1 = rng.gen_range(min_value..=max_value);
+            n2 = rng.gen_range(min_value..=max_value);
             points += n1 * n2;
         } else {
             errors +=1;
